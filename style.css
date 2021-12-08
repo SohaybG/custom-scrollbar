@@ -1,0 +1,75 @@
+body {
+    --container-gutter: 15px;
+    --main-color: #fb8632;
+    margin: 0;
+    font-size: 1rem;
+    line-height: 1.5;
+    font-family: 'Raleway', sans-serif;
+}
+.container {
+    width: calc(100% - (var(--container-gutter) * 2));
+    max-width: 1240px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 20px;
+}
+ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+.nav {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 15px;
+    overflow-y: scroll;
+}
+.nav-item {
+    background-color: var(--main-color);
+    color: #fff;
+    font-weight: 500;
+    padding: 0.625rem 0.9375rem;
+    border: 2px solid var(--main-color);
+    border-radius: 1.125rem;
+    transition: all .3s ease-in-out;
+    min-width: max-content;
+}
+.add-custom-scrollbar {
+    position: relative;
+    padding-bottom: 12px;
+}
+.add-custom-scrollbar.no-overflow {
+    padding-bottom: 0;
+}
+.custom-scrollbar-target {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    overflow-y: scroll; 
+}
+.custom-scrollbar-target::-webkit-scrollbar {
+    display: none;
+}
+.custom-scrollbar {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 8px;
+    background-color: #eeebe8;
+    border-radius: 100px;
+}
+.custom-scrollbar__inner {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    width: 0%;
+    background-color: var(--main-color);
+    height: 4px;
+    border-radius: 100px;
+    margin: 0 2px;
+}
+.hidden {
+    display: none !important;
+}
