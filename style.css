@@ -1,3 +1,6 @@
+*, *::before, ::after {
+    box-sizing: border-box;
+}
 body {
     --container-gutter: 15px;
     --main-color: #fb8632;
@@ -38,6 +41,10 @@ ul {
 .add-custom-scrollbar {
     position: relative;
     padding-bottom: 12px;
+    margin-bottom: 30px;
+}
+.add-custom-scrollbar:last-child {
+    margin-bottom: 0;
 }
 .add-custom-scrollbar.no-overflow {
     padding-bottom: 0;
