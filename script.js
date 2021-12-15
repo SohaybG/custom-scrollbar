@@ -24,8 +24,6 @@ function initScrollbar(wrapper) {
     
     if (isElementOverflowing) {
         wrapper.addClass('has-scrollbar');
-    } else {
-        wrapper.addClass('no-overflow');
     }
 
     element.on('scroll', moveScrollbar);
@@ -41,24 +39,25 @@ function refreshScrollbar(wrapper) {
     scrollbarInner.css('width', scrollbarWidth + '%');
     
     if (isOverflowing) {
-        wrapper.addClass('has-scrollbar');
+        wrapper.addClass('has-overflow');
         wrapper.removeClass('no-overflow');
         scrollbar.removeClass('hidden');
     } else {
         wrapper.addClass('no-overflow');
-        wrapper.removeClass('has-scrollbar');
+        wrapper.removeClass('has-overflow');
         scrollbar.addClass('hidden');
     }
 }
 
 function moveScrollbar() {
-    let scrollbarWrapper = $(this).parent().find('.custom-scrollbar');
+    // let scrollbarWrapper = $(this).parent().find('.custom-scrollbar');
     let scrollbar = $(this).parent().find('.custom-scrollbar__inner');
-    let scrollbarWrapperInnerWidth = scrollbarWrapper.outerWidth() - parseInt(scrollbar.css('margin-left')) - parseInt(scrollbar.css('margin-right'));
-    let overflowSpace = scrollbarWrapperInnerWidth - scrollbar.outerWidth();
-    console.log(overflowSpace);
     let { overflowLeftPercentage } = getElementScrollInfos($(this));
-    scrollbar.css('left', overflowSpace * overflowLeftPercentage + 'px');
+    // let scrollbarWrapperInnerWidth = scrollbarWrapper.outerWidth() - parseInt(scrollbar.css('margin-left')) - parseInt(scrollbar.css('margin-right'));
+    // let overflowSpace = scrollbarWrapperInnerWidth - scrollbar.outerWidth();
+    // scrollbar.css('left', overflowSpace * overflowLeftPercentage + 'px');
+    scrollbar.css('left', (overflowLeftPercentage * 100) + '%');
+    scrollbar.css('transform', `translate(-${overflowLeftPercentage * 100}%, -50%)`);
 }
 
 function getElementScrollInfos(element) {
