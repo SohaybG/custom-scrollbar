@@ -26,7 +26,23 @@ ul {
     justify-content: flex-start;
     align-items: center;
     gap: 15px;
-    overflow-y: scroll;
+    overflow-x: scroll; 
+    padding-bottom: 10px;
+    scrollbar-width: thin;
+    scrollbar-color: var(--main-color) #eeebe8;
+}
+.nav::-webkit-scrollbar {
+    height: 10px;
+    border-radius: 10px;
+}
+.nav::-webkit-scrollbar-track {
+    background: #eeebe8;
+    border-radius: 10px;
+}
+.nav::-webkit-scrollbar-thumb {
+    background-color: var(--main-color);
+    border-radius: 6px;
+    height: 5px;
 }
 .nav-item {
     background-color: var(--main-color);
@@ -39,43 +55,10 @@ ul {
     min-width: max-content;
 }
 .add-custom-scrollbar {
-    position: relative;
-    padding-bottom: 12px;
     margin-bottom: 30px;
 }
 .add-custom-scrollbar:last-child {
     margin-bottom: 0;
-}
-.add-custom-scrollbar.no-overflow {
-    padding-bottom: 0;
-}
-.custom-scrollbar-target {
-    -ms-overflow-style: none;
-    scrollbar-width: none;
-    overflow-y: scroll; 
-}
-.custom-scrollbar-target::-webkit-scrollbar {
-    display: none;
-}
-.custom-scrollbar {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 8px;
-    background-color: #eeebe8;
-    border-radius: 100px;
-}
-.custom-scrollbar__inner {
-    position: absolute;
-    top: 50%;
-    left: 0;
-    transform: translateY(-50%);
-    width: 0%;
-    background-color: var(--main-color);
-    height: 4px;
-    border-radius: 100px;
-    margin: 0 2px;
 }
 .hidden {
     display: none !important;
